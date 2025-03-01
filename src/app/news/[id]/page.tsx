@@ -1,7 +1,9 @@
 import {notFound} from "next/navigation";
 import {getNewsArticle} from "@/api";
-import Article from "@/components/std/article";
-import Link from "next/link";
+import {ChevronDownIcon, ChevronUpIcon} from "lucide-react";
+import VotesCounter from "@/components/std/votes";
+import {auth} from "@/auth";
+import {User, Vote} from "@/db";
 
 type Params = Promise<{ id: string }>
 
@@ -13,17 +15,46 @@ export default async function NewsArticleViewPage({ params }: {params: Params}) 
     notFound();
   }
 
+  async function votesChange(state: "positive" | "negative" | "neutral") {
+    "use server";
+
+    const user = await auth();
+    if (user === null) {
+      return;
+    }
+    const userId = user.user?.id;
+    if (userId === undefined) {
+      return;
+    }
+
+    const [vote, created] = await Vote.findOrBuild(
+      {
+        where: {targetId: newsArticle.id},
+        include: {
+          model: User,
+          where: {
+            id: userId
+          },
+        }
+      }
+    );
+    vote.update({
+      userId,
+      targetId: newsArticle.id,
+      positive: state === "positive"
+    })
+
+
+  }
+
   return <>
-    <div className="stdcontainer">
-      <Article title={newsArticle.title} img={{src: newsArticle.image, alt: newsArticle.title}} variant="horizontal" className="w-full" />
+    <div className="articlecontainer flex flex-col gap-4">
+      <img src={newsArticle.image} alt={newsArticle.title} className="w-full rounded-xl" />
+      <h1 className="font-bold text-2xl">{newsArticle.title}</h1>
     </div>
-    <div className="stdcontainer unreset" dangerouslySetInnerHTML={{__html: newsArticle.content}} />
-    <div className="stdcontainer">
-      {/*<Link href={`${id}/edit`}>*/}
-      {/*  <button className="button mx-auto flex">*/}
-      {/*    Редактировать*/}
-      {/*  </button>*/}
-      {/*</Link>*/}
+    <div className="articlecontainer unreset" dangerouslySetInnerHTML={{__html: newsArticle.content}} />
+    <div className="articlecontainer flex h-fit">
+      <VotesCounter votes={newsArticle.votes} onChange={votesChange} />
     </div>
   </>
 }

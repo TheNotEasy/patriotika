@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@auth/sequelize-adapter": "^2.8.0",
+    "@radix-ui/react-popover": "^1.1.6",
     "@radix-ui/react-slot": "^1.1.2",
     "@sequelize/sqlite3": "^7.0.0-alpha.45",
     "@tailwindcss/postcss": "^4.0.9",

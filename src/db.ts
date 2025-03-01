@@ -101,6 +101,10 @@ export const Vote = sequelize.define(
     targetId: {
       type: DataTypes.UUID,
       allowNull: false
+    },
+    positive: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
     }
   }
 )
@@ -121,8 +125,10 @@ export const adapter = SequelizeAdapter(sequelize, {
   }
 });
 
-// export const UserNewsComments = User.hasMany(NewsComment);
-// export const NewsCommentUser = NewsComment.belongsTo(User);
-//
-// export const UserVotes = User.hasMany(Vote);
-// export const VoteUser = Vote.belongsTo(User);
+export const UserNewsComments = User.hasMany(NewsComment);
+export const NewsCommentUser = NewsComment.belongsTo(User);
+
+export const UserVotes = User.hasMany(Vote);
+export const VoteUser = Vote.belongsTo(User);
+
+// sequelize.sync({ alter: true });

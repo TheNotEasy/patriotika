@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`antialiased ${interFont.className}`}>
-        <div className="flex flex-col min-h-[100vh] gap-5 sm:gap-10">
+        <div className="flex flex-col min-h-[100vh] gap-5 sm:gap-10 pb-10">
           <Header />
           {children}
         </div>

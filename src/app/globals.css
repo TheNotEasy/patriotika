@@ -44,6 +44,12 @@ a {
   @apply pl-5 pr-5 mx-auto;
 }
 
+.articlecontainer {
+  width: 100%;
+  max-width: 35rem;
+  @apply pl-5 pr-5 mx-auto;
+}
+
 .grid-cols-autofill {
   grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
 }

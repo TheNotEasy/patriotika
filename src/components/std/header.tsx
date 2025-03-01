@@ -2,6 +2,7 @@ import logo from "@public/logo.svg"
 import find from "@public/find.svg"
 
 import Link from "next/link";
+import {ChevronDownIcon, User} from "lucide-react";
 
 export default function Header() {
   return <div className="h-[90px] bg-teal-800 flex">
@@ -9,9 +10,12 @@ export default function Header() {
       <Link href="/" className="flex">
         <img src={logo.src} alt="Патриот" className="w-[100px]" />
       </Link>
-      <nav className="flex gap-1 mr-2.5">
+      <nav className="flex gap-5 mr-2.5">
         <Link href="/find" className="flex">
           <img src={find.src} alt="Искать" />
+        </Link>
+        <Link href="/lk/signin" className="flex items-center">
+          <User className="text-white"></User>
         </Link>
       </nav>
     </div>
