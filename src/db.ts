@@ -121,8 +121,6 @@ export const adapter = SequelizeAdapter(sequelize, {
   }
 });
 
-sequelize.sync();
-
 // export const UserNewsComments = User.hasMany(NewsComment);
 // export const NewsCommentUser = NewsComment.belongsTo(User);
 //

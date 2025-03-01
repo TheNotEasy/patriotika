@@ -15,6 +15,7 @@ import SignIn from "@/components/std/signin";
 export default function NewsPage() {
   const [pagination, setPagination] = useState(1);
 
+
   return <>
     <Pagination>
       <PaginationContent>
@@ -35,6 +36,8 @@ export default function NewsPage() {
         </PaginationItem>
       </PaginationContent>
     </Pagination>
-    <SignIn></SignIn>
+    <div className="stdcontainer grid grid-cols-autofill">
+      {}
+    </div>
   </>
 }
