@@ -1,15 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/std/header";
+import {Inter} from "next/font/google"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const interFont = Inter({
+  subsets: ['cyrillic', 'latin']
 });
 
 export const metadata: Metadata = {
@@ -24,8 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+      <body className={`antialiased ${interFont.className}`}>
+        <div className="flex flex-col min-h-[100vh] gap-5 sm:gap-10">
+          <Header />
+          {children}
+        </div>
       </body>
     </html>
   );
