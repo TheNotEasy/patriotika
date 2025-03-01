@@ -1,3 +1,3 @@
-export function tw(className: React.ComponentProps<'div'>['className']): string {
+export function tw(className: string): string {
   return className.replaceAll(" false", '');
 }

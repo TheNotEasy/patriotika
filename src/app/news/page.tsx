@@ -15,7 +15,6 @@ import SignIn from "@/components/std/signin";
 export default function NewsPage() {
   const [pagination, setPagination] = useState(1);
 
-
   return <>
     <Pagination>
       <PaginationContent>
