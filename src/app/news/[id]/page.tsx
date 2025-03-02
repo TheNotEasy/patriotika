@@ -80,8 +80,8 @@ export default async function NewsArticleViewPage({ params }: {params: Params}) 
       <h1 className="font-bold text-2xl">{model.title}</h1>
     </div>
     <div className="articlecontainer unreset" dangerouslySetInnerHTML={{__html: model.content}} />
-    <div className="articlecontainer flex h-fit">
-      <VotesCounter votes={model.votes} onChange={votesChange} state={state} />
-    </div>
+    {/*<div className="articlecontainer flex h-fit">*/}
+    {/*  <VotesCounter votes={model.votes} onChange={votesChange} state={state} />*/}
+    {/*</div>*/}
   </>
 }
