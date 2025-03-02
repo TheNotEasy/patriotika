@@ -5,12 +5,13 @@ import {useState} from "react";
 
 type VotesCounterProps = {
   votes: number,
+  state?: 'positive' | 'negative' | 'neutral',
 
   onChange?: (state: 'positive' | 'negative' | 'neutral') => any
 }
 
-export default function VotesCounter({ votes: defaultVotes, onChange }: VotesCounterProps) {
-  const [votes, setVotes] = useState(defaultVotes);
+export default function VotesCounter({ votes: defaultVotes, onChange, state }: VotesCounterProps) {
+  const [votes, setVotes] = useState(defaultVotes + (state === "positive" ? 1 : (state == "negative" ? -1 : 0)));
 
   function handle(positive: boolean) {
     if (positive === (votes > defaultVotes) && !positive === (votes < defaultVotes)) {

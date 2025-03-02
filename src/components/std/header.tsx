@@ -14,7 +14,7 @@ export default function Header() {
         <Link href="/find" className="flex">
           <img src={find.src} alt="Искать" />
         </Link>
-        <Link href="/lk/signin" className="flex items-center">
+        <Link href="/lk" className="flex items-center">
           <User className="text-white"></User>
         </Link>
       </nav>

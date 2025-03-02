@@ -1,11 +1,17 @@
 import { signIn } from "@/authserver"
+import {useState} from "react";
 
 export default function Googlesignin() {
+  const [loading, setLoading] = useState(false);
+
   return (
     <form
-      action={() => signIn("google")}
+      action={() => {
+        setLoading(true);
+        signIn("google")
+      }}
     >
-      <button type="submit" className="button w-full">Войти с помощью Google</button>
+      <button type="submit" className="button w-full">{loading ? "Войти с помощью Google" : "Загрузка..."}</button>
     </form>
   )
 }

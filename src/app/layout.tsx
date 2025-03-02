@@ -3,6 +3,8 @@ import "./globals.css";
 import Header from "@/components/std/header";
 import {Inter} from "next/font/google"
 
+export const fetchCache = 'force-no-store';
+
 const interFont = Inter({
   subsets: ['cyrillic', 'latin']
 });
