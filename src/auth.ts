@@ -4,6 +4,6 @@ import Resend from "next-auth/providers/resend"
 import {sequelize, adapter} from "@/db";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  providers: [Google],
+  providers: [Google, Resend],
   adapter
 })
