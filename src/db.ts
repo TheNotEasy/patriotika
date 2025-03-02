@@ -58,12 +58,20 @@ export const InfoArticle = sequelize.define(
       allowNull: false,
       defaultValue: DataTypes.NOW
     },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     content: {
       type: DataTypes.TEXT,
       allowNull: false
+    },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: true,
     }
   },
-)
+);
 
 export const NewsComment = sequelize.define(
   'NewsComment',
@@ -131,4 +139,4 @@ export const NewsCommentUser = NewsComment.belongsTo(User);
 export const UserVotes = User.hasMany(Vote);
 export const VoteUser = Vote.belongsTo(User);
 
-// sequelize.sync({ alter: true });
+// sequelize.sync();

@@ -8,7 +8,7 @@ type ArticleProps = {
   },
   title: string,
   variant?: 'horizontal' | 'vertical',
-  createdAt: string
+  createdAt: Date
 } & ComponentProps<'div'>
 
 export default function Article({img, title, variant, createdAt, ...divProps}: ArticleProps) {
@@ -21,6 +21,18 @@ export default function Article({img, title, variant, createdAt, ...divProps}: A
     <div className={tw(`rounded-xl overflow-hidden aspect-[323/253] bg-gray-300 ${horizontal && 'h-full'} ${vertical && 'w-full'} relative`)}>
       <img {...img} className="w-full h-full" />
     </div>
-    <p className={tw(`text-xs text-wrap font-semibold w-full ${horizontal && 'self-center sm:text-xl'}`)}>{title}</p>
+    <div className="flex flex-col gap-2">
+      <p className={tw(`text-xs text-wrap font-semibold w-full ${horizontal && 'self-center sm:text-xl'}`)}>{title}</p>
+      <p className={tw(`text-xs text-gray-500 text-wrap font-semibold w-full ${horizontal && 'self-center sm:text-xl'}`)}>{createdAt.toLocaleString('ru-RU', {
+          timeZone: 'Europe/Moscow',
+          hourCycle: 'h23',
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit"
+      })}</p>
+    </div>
   </div>
 }

@@ -54,12 +54,18 @@ export async function listArticles(limit: number, offset: number) {
   return (await InfoArticle.findAll({limit, offset})).map(model => model.toJSON());
 }
 
-export async function addArticle(content: string) {
+export async function addArticle(form: FormData) {
+  const content = form.get("content")!.toString();
+  const title = form.get("title")!.toString();
+  const image = form.get("image")! as File;
+
+  const { url } = await put(`infoarticles/${image.name}`, image, { access: 'public' });
+
   if (!(await amIAdmin())) {
     return {"error": "not an admin"};
   }
 
-  return (await NewsArticle.create({content: content})).toJSON();
+  return (await InfoArticle.create({content, title, image: url})).toJSON();
 }
 
 export async function amIAdmin() {
