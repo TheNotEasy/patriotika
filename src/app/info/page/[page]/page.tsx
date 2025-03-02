@@ -23,7 +23,7 @@ export default async function InfoPage({ params }: { params: Params }) {
 
   const newsCount = await InfoArticle.count();
   const perPage = 5;
-  const news = await InfoArticle.findAll({limit: perPage, offset: (+page-1)*perPage})
+  const news = await InfoArticle.findAll({limit: perPage, offset: (+page-1)*perPage, order: [['createdAt', 'DESC']]})
   const articles = news.map((model: any) => <Link href={`/info/${model.id}`} key={model.id}>
     <Article variant="vertical" img={{src: model.image, alt: model.title}} title={model.title} createdAt={model.createdAt} />
   </Link>)

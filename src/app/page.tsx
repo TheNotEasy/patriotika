@@ -10,8 +10,8 @@ import {InfoArticle, NewsArticle} from "@/db";
 
 export default async function Home() {
   await connection();
-  const articles = await NewsArticle.findAll({limit: 5});
-  const info = await InfoArticle.findAll({limit: 5})
+  const articles = await NewsArticle.findAll({limit: 5, order: [['createdAt', 'DESC']]});
+  const info = await InfoArticle.findAll({limit: 5, order: [['createdAt', 'DESC']]})
 
   return <>
     <div className="stdcontainer flex flex-col gap-5 overflow-visible">
