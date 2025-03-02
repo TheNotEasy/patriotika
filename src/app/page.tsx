@@ -38,7 +38,7 @@ export default async function Home() {
         </div>
         <div className="flex gap-5 w-max sm:grid sm:w-full grid-cols-autofill">
           {info.map((model: any) =>
-            <Link href={`/news/${model.id}`} key={model.id}>
+            <Link href={`/info/${model.id}`} key={model.id}>
               <Article title={model.title} img={{src: model.image, alt: model.title}} createdAt={model.createdAt} />
             </Link>)}
         </div>
