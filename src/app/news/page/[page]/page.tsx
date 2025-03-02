@@ -13,6 +13,8 @@ import {PaginationWarpPopover} from "@/app/news/page/[page]/warp";
 import {NewsArticle} from "@/db";
 import Article from "@/components/std/article";
 import Link from "next/link";
+import {Suspense} from "react";
+import LoadingSkeleton from "@/app/loading";
 
 type Params = Promise<{
   page: string

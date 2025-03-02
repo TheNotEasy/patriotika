@@ -11,7 +11,7 @@ export default function Googlesignin() {
         signIn("google")
       }}
     >
-      <button type="submit" className="button w-full">{loading ? "Войти с помощью Google" : "Загрузка..."}</button>
+      <button type="submit" className="button w-full">{!loading ? "Войти с помощью Google" : "Загрузка..."}</button>
     </form>
   )
 }
