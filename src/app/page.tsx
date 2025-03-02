@@ -15,6 +15,11 @@ export default async function Home() {
 
   return <>
     <div className="stdcontainer flex flex-col gap-5 overflow-visible">
+      <div className="w-full flex flex-col gap-4 p-4 bg-gray-200 rounded-xl">
+        <h1 className="font-bold">Цитата дня</h1>
+        <p className="text-center">Выходя на тропу войны, герой тот, кто не думает о последствиях.</p>
+        <p className="text-right">— Имам Шамиль</p>
+      </div>
       <div className="overflow-x-auto w-full flex flex-col gap-3.5">
         <div className="flex gap-4">
         <p className="font-bold">Новости</p>
