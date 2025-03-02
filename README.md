@@ -2,8 +2,10 @@
 
 Фреймворк: Next.js
 
-Использован 
+Использовано
 - Typescript
 - Sequelize
-- Chakra UI (планируется)
-- Auth.js (планируется)
+- Tailwind CSS
+- PostgreSQL
+- Auth.js (Google)
+- 

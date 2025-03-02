@@ -11,9 +11,6 @@ export default function Header() {
         <img src={logo.src} alt="Патриот" className="w-[100px]" />
       </Link>
       <nav className="flex gap-5 mr-2.5">
-        <Link href="/find" className="flex">
-          <img src={find.src} alt="Искать" />
-        </Link>
         <Link href="/lk" className="flex items-center">
           <User className="text-white"></User>
         </Link>

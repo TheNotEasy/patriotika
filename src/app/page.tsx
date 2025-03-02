@@ -40,7 +40,8 @@ export default async function Home() {
           {info.map((model: any) =>
             <Link href={`/info/${model.id}`} key={model.id}>
               <Article title={model.title} img={{src: model.image, alt: model.title}} createdAt={model.createdAt} />
-            </Link>)}
+            </Link>
+          )}
         </div>
       </div>
     </div>

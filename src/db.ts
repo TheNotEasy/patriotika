@@ -135,8 +135,10 @@ export const adapter = SequelizeAdapter(sequelize, {
 
 export const UserNewsComments = User.hasMany(NewsComment);
 export const NewsCommentUser = NewsComment.belongsTo(User);
+export const NewsComments = NewsArticle.hasMany(NewsComment);
+export const CommentNewsTarget = NewsComment.belongsTo(NewsArticle);
 
 export const UserVotes = User.hasMany(Vote);
 export const VoteUser = Vote.belongsTo(User);
 
-// sequelize.sync();
+// sequelize.sync({ alter: true });
